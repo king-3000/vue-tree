@@ -1,6 +1,6 @@
 {
   "name": "@devops/vue-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "king",
   "description": "一个vue的树状数据展示组件，高仿自elementui，支持全部API，做了代码优化减少了体积和提高了运行性能。",
   "scripts": {
