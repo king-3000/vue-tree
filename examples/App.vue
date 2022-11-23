@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <demo-a />
-
     <devops-tree
-      show-checkbox
       :data="data"
       :props="defaultProps"
       @node-click="handleNodeClick"
@@ -12,14 +9,12 @@
 </template>
 
 <script>
-import DevopsTree from "../src/devops-tree.vue";
-import demoA from '../src/demo.vue'
+import DevopsTree from "../src/devops-tree.vue"
 
 export default {
   name: "App",
   components: {
-    DevopsTree,
-    demoA
+    DevopsTree
   },
   data() {
     return {

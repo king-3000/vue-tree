@@ -1,6 +1,6 @@
 <template>
   <div
-    class="el-tree-node"
+    class="devops-tree-node"
     @click.stop="handleClick"
     @contextmenu="($event) => this.handleContextMenu($event)"
     v-show="node.visible"
@@ -23,18 +23,18 @@
     @drop.stop="handleDrop"
     ref="node"
   >
-    <div class="el-tree-node__content"
+    <div class="devops-tree-node__content"
       :style="{ 'padding-left': (node.level - 1) * tree.indent + 'px' }">
       <span
         @click.stop="handleExpandIconClick"
         :class="[
           { 'is-leaf': node.isLeaf, expanded: !node.isLeaf && expanded },
-          'el-tree-node__expand-icon',
-          tree.iconClass ? tree.iconClass : 'el-icon-caret-right'
+          'devops-tree-node__expand-icon',
+          tree.iconClass ? tree.iconClass : 'devops-icon-caret-right'
         ]"
       >
       </span>
-      <el-checkbox
+      <devops-checkbox
         v-if="showCheckbox"
         v-model="node.checked"
         :indeterminate="node.indeterminate"
@@ -42,22 +42,22 @@
         @click.native.stop
         @change="handleCheckChange"
       >
-      </el-checkbox>
+      </devops-checkbox>
       <span
         v-if="node.loading"
-        class="el-tree-node__loading-icon el-icon-loading">
+        class="devops-tree-node__loading-icon devops-icon-loading">
       </span>
       <node-content :node="node"></node-content>
     </div>
-    <el-collapse-transition>
+    <devops-collapse-transition>
       <div
-        class="el-tree-node__children"
+        class="devops-tree-node__children"
         v-if="!renderAfterExpand || childNodeRendered"
         v-show="expanded"
         role="group"
         :aria-expanded="expanded"
       >
-        <el-tree-node
+        <devops-tree-node
           :render-content="renderContent"
           v-for="child in node.childNodes"
           :render-after-expand="renderAfterExpand"
@@ -65,22 +65,22 @@
           :key="getNodeKey(child)"
           :node="child"
           @node-expand="handleChildNodeExpand">
-        </el-tree-node>
+        </devops-tree-node>
       </div>
-    </el-collapse-transition>
+    </devops-collapse-transition>
   </div>
 </template>
 
 <script type="text/jsx">
-  import ElCollapseTransition from './transitions/collapse-transition'
-  import ElCheckbox from './checkbox'
+  import DevopsCollapseTransition from './transitions/collapse-transition'
+  import DevopsCheckbox from './checkbox'
   import Emitter from '@/utils/emitter'
   import { getNodeKey } from './model/util'
 
   export default {
-    name: 'ElTreeNode',
+    name: 'DevopsTreeNode',
 
-    componentName: 'ElTreeNode',
+    componentName: 'DevopsTreeNode',
 
     mixins: [Emitter],
 
@@ -103,8 +103,8 @@
     },
 
     components: {
-      ElCollapseTransition,
-      ElCheckbox,
+      DevopsCollapseTransition,
+      DevopsCheckbox,
       NodeContent: {
         props: {
           node: {
@@ -121,7 +121,7 @@
               ? parent.renderContent.call(parent._renderProxy, h, { _self: tree.$vnode.context, node, data, store })
               : tree.$scopedSlots.default
                 ? tree.$scopedSlots.default({ node, data })
-                : <span class="el-tree-node__label">{ node.label }</span>
+                : <span class="devops-tree-node__label">{ node.label }</span>
           );
         }
       }

@@ -40,13 +40,13 @@
   white-space: nowrap;
   outline: none;
   &:focus { /* focus */
-    > .el-tree-node__content {
+    > .devops-tree-node__content {
       background-color: $--tree-node-hover-background-color;
     }
   }
 
   @include when(drop-inner) {
-    > .el-tree-node__content .el-tree-node__label {
+    > .devops-tree-node__content .devops-tree-node__label {
       background-color: $--color-primary;
       color: #fff;
     }
@@ -58,17 +58,17 @@
     height: 26px;
     cursor: pointer;
 
-    & > .el-tree-node__expand-icon {
+    & > .devops-tree-node__expand-icon {
       padding: 6px;
     }
-    & > label.el-checkbox {
+    & > label.devops-checkbox {
       margin-right: 8px;
     }
     &:hover {
       background-color: $--tree-node-hover-background-color;
     }
 
-    .el-tree.is-dragging & {
+    .devops-tree.is-dragging & {
       cursor: move;
 
       & * {
@@ -76,7 +76,7 @@
       }
     }
 
-    .el-tree.is-dragging.is-drop-not-allow & {
+    .devops-tree.is-dragging.is-drop-not-allow & {
       cursor: not-allowed;
     }
   }
@@ -109,16 +109,16 @@
     color: $--tree-expand-icon-color;
   }
 
-  & > .el-tree-node__children {
+  & > .devops-tree-node__children {
     overflow: hidden;
     background-color: transparent;
   }
 
-  &.is-expanded > .el-tree-node__children {
+  &.is-expanded > .devops-tree-node__children {
     display: block;
   }
 }
 
-.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
+.devops-tree--highlight-current .devops-tree-node.is-current > .devops-tree-node__content {
   background-color: mix($--color-white, $--color-primary, 92%);
 }
