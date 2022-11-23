@@ -1,4 +1,4 @@
-## devops-tree 树形控件 [高仿Element]
+## vue-tree 树形控件 [高仿Element]
 
 用清晰的层级结构展示信息，可展开或折叠。
 
@@ -12,6 +12,9 @@ yarn install
 
 // 启动调试
 yarn dev
+
+// 发布打包
+yarn build
 ```
 
 > ps: example 目录为实例目录
@@ -20,9 +23,9 @@ yarn dev
 
 基础的树形结构展示。
 
-:::demo
+### demo
 ```html
-<devops-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></devops-tree>
+<vue-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></vue-tree>
 
 <script>
   export default {
@@ -77,21 +80,20 @@ yarn dev
   };
 </script>
 ```
-:::
 
 ### 可选择
 
 适用于需要选择层级时使用。
 
-:::demo 本例还展示了动态加载节点数据的方法。
+### demo 本例还展示了动态加载节点数据的方法。
 ```html
-<devops-tree
+<vue-tree
   :props="props"
   :load="loadNode"
   lazy
   show-checkbox
   @check-change="handleCheckChange">
-</devops-tree>
+</vue-tree>
 
 <script>
   export default {
@@ -145,18 +147,19 @@ yarn dev
   };
 </script>
 ```
-:::
 
 ### 懒加载自定义叶子节点
 
-:::demo 由于在点击节点时才进行该层数据的获取，默认情况下 Tree 无法预知某个节点是否为叶子节点，所以会为每个节点添加一个下拉按钮，如果节点没有下层数据，则点击后下拉按钮会消失。同时，你也可以提前告知 Tree 某个节点是否为叶子节点，从而避免在叶子节点前渲染下拉按钮。
+### demo 
+> 由于在点击节点时才进行该层数据的获取，默认情况下 Tree 无法预知某个节点是否为叶子节点，所以会为每个节点添加一个下拉按钮，如果节点没有下层数据，则点击后下拉按钮会消失。同时，你也可以提前告知 Tree 某个节点是否为叶子节点，从而避免在叶子节点前渲染下拉按钮。
+
 ```html
-<devops-tree
+<vue-tree
   :props="props"
   :load="loadNode"
   lazy
   show-checkbox>
-</devops-tree>
+</vue-tree>
 
 <script>
   export default {
@@ -191,21 +194,24 @@ yarn dev
   };
 </script>
 ```
-:::
+
 
 ### 默认展开和默认选中
 可将 Tree 的某些节点设置为默认展开或默认选中
 
-:::demo 分别通过`default-expanded-keys`和`default-checked-keys`设置默认展开和默认选中的节点。需要注意的是，此时必须设置`node-key`，其值为节点数据中的一个字段名，该字段在整棵树中是唯一的。
+### demo 
+
+> 分别通过`default-expanded-keys`和`default-checked-keys`设置默认展开和默认选中的节点。需要注意的是，此时必须设置`node-key`，其值为节点数据中的一个字段名，该字段在整棵树中是唯一的。
+> 
 ```html
-<devops-tree
+<vue-tree
   :data="data"
   show-checkbox
   node-key="id"
   :default-expanded-keys="[2, 3]"
   :default-checked-keys="[5]"
   :props="defaultProps">
-</devops-tree>
+</vue-tree>
 
 <script>
   export default {
@@ -255,20 +261,20 @@ yarn dev
   };
 </script>
 ```
-:::
+
 
 ### 禁用状态
 可将 Tree 的某些节点设置为禁用状态
 
-:::demo 通过`disabled`设置禁用状态。
+### demo 通过`disabled`设置禁用状态。
 ```html
-<devops-tree
+<vue-tree
   :data="data"
   show-checkbox
   node-key="id"
   :default-expanded-keys="[2, 3]"
   :default-checked-keys="[5]">
-</devops-tree>
+</vue-tree>
 
 <script>
   export default {
@@ -311,13 +317,15 @@ yarn dev
   };
 </script>
 ```
-:::
+
 
 ### 树节点的选择
 
-:::demo 本例展示如何获取和设置选中节点。获取和设置各有两种方式：通过 node 或通过 key。如果需要通过 key 来获取或设置，则必须设置`node-key`。
+### demo
+> 本例展示如何获取和设置选中节点。获取和设置各有两种方式：通过 node 或通过 key。如果需要通过 key 来获取或设置，则必须设置`node-key`。
+> 
 ```html
-<devops-tree
+<vue-tree
   :data="data"
   show-checkbox
   default-expand-all
@@ -325,7 +333,7 @@ yarn dev
   ref="tree"
   highlight-current
   :props="defaultProps">
-</devops-tree>
+</vue-tree>
 
 <div class="buttons">
   <button @click="getCheckedNodes">通过 node 获取</button>
@@ -407,28 +415,31 @@ yarn dev
   };
 </script>
 ```
-:::
+
 
 ### 自定义节点内容
 节点的内容支持自定义，可以在节点区添加按钮或图标等内容
 
-:::demo 可以通过两种方法进行树节点内容的自定义：`render-content`和 scoped slot。使用`render-content`指定渲染函数，该函数返回需要的节点区内容即可。渲染函数的用法请参考 Vue 文档。使用 scoped slot 会传入两个参数`node`和`data`，分别表示当前节点的 Node 对象和当前节点的数据。注意：由于 jsfiddle 不支持 JSX 语法，所以`render-content`示例在 jsfiddle 中无法运行。但是在实际的项目中，只要正确地配置了相关依赖，就可以正常运行。
+### demo 
+
+> 可以通过两种方法进行树节点内容的自定义：`render-content`和 scoped slot。使用`render-content`指定渲染函数，该函数返回需要的节点区内容即可。渲染函数的用法请参考 Vue 文档。使用 scoped slot 会传入两个参数`node`和`data`，分别表示当前节点的 Node 对象和当前节点的数据。注意：由于 jsfiddle 不支持 JSX 语法，所以`render-content`示例在 jsfiddle 中无法运行。但是在实际的项目中，只要正确地配置了相关依赖，就可以正常运行。
+
 ```html
 <div class="custom-tree-container">
   <div class="block">
     <p>使用 render-content</p>
-    <devops-tree
+    <vue-tree
       :data="data"
       show-checkbox
       node-key="id"
       default-expand-all
       :expand-on-click-node="false"
       :render-content="renderContent">
-    </devops-tree>
+    </vue-tree>
   </div>
   <div class="block">
     <p>使用 scoped slot</p>
-    <devops-tree
+    <vue-tree
       :data="data"
       show-checkbox
       node-key="id"
@@ -451,7 +462,7 @@ yarn dev
           </button>
         </span>
       </span>
-    </devops-tree>
+    </vue-tree>
   </div>
 </div>
 
@@ -542,26 +553,29 @@ yarn dev
   }
 </style>
 ```
-:::
+
 
 ### 节点过滤
 通过关键字过滤树节点
 
-:::demo 在需要对节点进行过滤时，调用 Tree 实例的`filter`方法，参数为关键字。需要注意的是，此时需要设置`filter-node-method`，值为过滤函数。
+### demo
+
+> 在需要对节点进行过滤时，调用 Tree 实例的`filter`方法，参数为关键字。需要注意的是，此时需要设置`filter-node-method`，值为过滤函数。
+
 ```html
 <input
   placeholder="输入关键字进行过滤"
   v-model="filterText">
 </input>
 
-<devops-tree
+<vue-tree
   class="filter-tree"
   :data="data"
   :props="defaultProps"
   default-expand-all
   :filter-node-method="filterNode"
   ref="tree">
-</devops-tree>
+</vue-tree>
 
 <script>
   export default {
@@ -625,20 +639,20 @@ yarn dev
   };
 </script>
 ```
-:::
+
 
 ### 手风琴模式
 
 对于同一级的节点，每次只能展开一个
 
-:::demo
+### demo
 ```html
-<devops-tree
+<vue-tree
   :data="data"
   :props="defaultProps"
   accordion
   @node-click="handleNodeClick">
-</devops-tree>
+</vue-tree>
 
 <script>
   export default {
@@ -693,15 +707,15 @@ yarn dev
   };
 </script>
 ```
-:::
+
 
 ### 可拖拽节点
 
 通过 draggable 属性可让节点变为可拖拽。
 
-:::demo
+### demo
 ```html
-<devops-tree
+<vue-tree
   :data="data"
   node-key="id"
   default-expand-all
@@ -714,7 +728,7 @@ yarn dev
   draggable
   :allow-drop="allowDrop"
   :allow-drag="allowDrag">
-</devops-tree>
+</vue-tree>
 
 <script>
   export default {
@@ -804,7 +818,7 @@ yarn dev
   };
 </script>
 ```
-:::
+
 
 ### Attributes
 | 参数                  | 说明                                               | 类型                        | 可选值  | 默认值   |

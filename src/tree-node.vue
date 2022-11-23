@@ -1,6 +1,6 @@
 <template>
   <div
-    class="devops-tree-node"
+    class="vue-tree-node"
     @click.stop="handleClick"
     @contextmenu="($event) => this.handleContextMenu($event)"
     v-show="node.visible"
@@ -23,18 +23,18 @@
     @drop.stop="handleDrop"
     ref="node"
   >
-    <div class="devops-tree-node__content"
+    <div class="vue-tree-node__content"
       :style="{ 'padding-left': (node.level - 1) * tree.indent + 'px' }">
       <span
         @click.stop="handleExpandIconClick"
         :class="[
           { 'is-leaf': node.isLeaf, expanded: !node.isLeaf && expanded },
-          'devops-tree-node__expand-icon',
-          tree.iconClass ? tree.iconClass : 'devops-icon-caret-right'
+          'vue-tree-node__expand-icon',
+          tree.iconClass ? tree.iconClass : 'vue-icon-caret-right'
         ]"
       >
       </span>
-      <devops-checkbox
+      <tree-checkbox
         v-if="showCheckbox"
         v-model="node.checked"
         :indeterminate="node.indeterminate"
@@ -42,22 +42,22 @@
         @click.native.stop
         @change="handleCheckChange"
       >
-      </devops-checkbox>
+      </tree-checkbox>
       <span
         v-if="node.loading"
-        class="devops-tree-node__loading-icon devops-icon-loading">
+        class="vue-tree-node__loading-icon vue-icon-loading">
       </span>
       <node-content :node="node"></node-content>
     </div>
-    <devops-collapse-transition>
+    <tree-collapse-transition>
       <div
-        class="devops-tree-node__children"
+        class="vue-tree-node__children"
         v-if="!renderAfterExpand || childNodeRendered"
         v-show="expanded"
         role="group"
         :aria-expanded="expanded"
       >
-        <devops-tree-node
+        <vue-tree-node
           :render-content="renderContent"
           v-for="child in node.childNodes"
           :render-after-expand="renderAfterExpand"
@@ -65,22 +65,22 @@
           :key="getNodeKey(child)"
           :node="child"
           @node-expand="handleChildNodeExpand">
-        </devops-tree-node>
+        </vue-tree-node>
       </div>
-    </devops-collapse-transition>
+    </tree-collapse-transition>
   </div>
 </template>
 
 <script type="text/jsx">
-  import DevopsCollapseTransition from './transitions/collapse-transition'
-  import DevopsCheckbox from './checkbox'
+  import TreeCollapseTransition from './transitions/collapse-transition'
+  import TreeCheckbox from './checkbox'
   import Emitter from '@/utils/emitter'
   import { getNodeKey } from './model/util'
 
   export default {
-    name: 'DevopsTreeNode',
+    name: 'VueTreeNode',
 
-    componentName: 'DevopsTreeNode',
+    componentName: 'VueTreeNode',
 
     mixins: [Emitter],
 
@@ -103,8 +103,8 @@
     },
 
     components: {
-      DevopsCollapseTransition,
-      DevopsCheckbox,
+      TreeCollapseTransition,
+      TreeCheckbox,
       NodeContent: {
         props: {
           node: {
@@ -121,7 +121,7 @@
               ? parent.renderContent.call(parent._renderProxy, h, { _self: tree.$vnode.context, node, data, store })
               : tree.$scopedSlots.default
                 ? tree.$scopedSlots.default({ node, data })
-                : <span class="devops-tree-node__label">{ node.label }</span>
+                : <span class="vue-tree-node__label">{ node.label }</span>
           );
         }
       }

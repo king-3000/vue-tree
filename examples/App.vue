@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <devops-tree
+    <vue-tree
       :data="data"
       :props="defaultProps"
       @node-click="handleNodeClick"
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import DevopsTree from "../src/devops-tree.vue"
+import VueTree from "../src/vue-tree.vue"
 
 export default {
   name: "App",
   components: {
-    DevopsTree
+    VueTree
   },
   data() {
     return {

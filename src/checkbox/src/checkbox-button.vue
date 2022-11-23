@@ -1,8 +1,8 @@
 <template>
   <label
-    class="devops-checkbox-button"
+    class="vue-checkbox-button"
       :class="[
-        size ? 'devops-checkbox-button--' + size : '',
+        size ? 'vue-checkbox-button--' + size : '',
         { 'is-disabled': isDisabled },
         { 'is-checked': isChecked },
         { 'is-focus': focus },
@@ -13,7 +13,7 @@
     >
     <input
       v-if="trueLabel || falseLabel"
-      class="devops-checkbox-button__original"
+      class="vue-checkbox-button__original"
       type="checkbox"
       :name="name"
       :disabled="isDisabled"
@@ -25,7 +25,7 @@
       @blur="focus = false">
     <input
       v-else
-      class="devops-checkbox-button__original"
+      class="vue-checkbox-button__original"
       type="checkbox"
       :name="name"
       :disabled="isDisabled"
@@ -35,7 +35,7 @@
       @focus="focus = true"
       @blur="focus = false">
 
-    <span class="devops-checkbox-button__inner"
+    <span class="vue-checkbox-button__inner"
       v-if="$slots.default || label"
       :style="isChecked ? activeStyle : null">
       <slot>{{label}}</slot>

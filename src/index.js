@@ -1,7 +1,7 @@
-import devopsTree from './components/tree'
+import VueTree from './vue-tree.vue'
 
-devopsTree.install = Vue => {
-    Vue.components(devopsTree.name, devopsTree)
+VueTree.install = Vue => {
+    Vue.components(VueTree.name, VueTree)
 }
 
-export default devopsTree
+export default VueTree

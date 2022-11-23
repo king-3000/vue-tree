@@ -1,11 +1,14 @@
 {
-  "name": "devops-tree",
+  "name": "@devops/vue-tree",
   "version": "1.0.0",
-  "private": true,
+  "author": "king",
+  "description": "一个vue的树状数据展示组件，高仿自elementui，支持全部API，做了代码优化减少了体积和提高了运行性能。",
   "scripts": {
     "dev": "vue-cli-service serve examples",
-    "build": "vue-cli-service build src/index.js"
+    "build": "vue-cli-service build --target lib src/index.js",
+    "prepublish": "npm run build"
   },
+  "main": "dist/vue-tree.umd.min.js",
   "dependencies": {
     "core-js": "^3.8.3",
     "vue": "^2.6.14"

@@ -1,15 +1,15 @@
 <template>
   <div
-    class="devops-tree"
+    class="vue-tree"
     :class="{
-      'devops-tree--highlight-current': highlightCurrent,
+      'vue-tree--highlight-current': highlightCurrent,
       'is-dragging': !!dragState.draggingNode,
       'is-drop-not-allow': !dragState.allowDrop,
       'is-drop-inner': dragState.dropType === 'inner'
     }"
     role="tree"
   >
-    <devops-tree-node
+    <vue-tree-node
       v-for="child in root.childNodes"
       :node="child"
       :props="props"
@@ -18,13 +18,13 @@
       :key="getNodeKey(child)"
       :render-content="renderContent"
       @node-expand="handleNodeExpand">
-    </devops-tree-node>
-    <div class="devops-tree__empty-block" v-if="isEmpty">
-      <span class="devops-tree__empty-text">{{ emptyText }}</span>
+    </vue-tree-node>
+    <div class="vue-tree__empty-block" v-if="isEmpty">
+      <span class="vue-tree__empty-text">{{ emptyText }}</span>
     </div>
     <div
       v-show="dragState.showDropIndicator"
-      class="devops-tree__drop-indicator"
+      class="vue-tree__drop-indicator"
       ref="dropIndicator">
     </div>
   </div>
@@ -33,16 +33,16 @@
 <script>
 import TreeStore from './model/tree-store'
 import { getNodeKey, findNearestComponent } from './model/util'
-import DevopsTreeNode from "./tree-node.vue"
+import VueTreeNode from "./tree-node.vue"
 import emitter from "@/utils/emitter";
 import { addClass, removeClass } from '@/utils/util'
 
 export default {
-  name: "DevopsTree",
+  name: "VueTree",
 
   mixins: [emitter],
   
-  components: { DevopsTreeNode },
+  components: { VueTreeNode },
 
   data() {
     return {
@@ -280,7 +280,7 @@ export default {
     },
 
     handleNodeExpand(nodeData, node, instance) {
-      this.broadcast("DevopsTreeNode", "tree-node-expand", node);
+      this.broadcast("VueTreeNode", "tree-node-expand", node);
       this.$emit("node-expand", nodeData, node, instance);
     },
 
@@ -307,7 +307,7 @@ export default {
 
     handleKeydown(ev) {
       const currentItem = ev.target;
-      if (currentItem.className.indexOf("devops-tree-node") === -1) return;
+      if (currentItem.className.indexOf("vue-tree-node") === -1) return;
       const keyCode = ev.keyCode;
       this.treeItems = this.$el.querySelectorAll(
         ".is-focusable[role=treeitem]"
@@ -385,7 +385,7 @@ export default {
     });
 
     this.$on("tree-node-drag-over", (event) => {
-      const dropNode = findNearestComponent(event.target, "DevopsTreeNode");
+      const dropNode = findNearestComponent(event.target, "VueTreeNode");
       const oldDropNode = dragState.dropNode;
       if (oldDropNode && oldDropNode !== dropNode) {
         removeClass(oldDropNode.$el, "is-drop-inner");
@@ -473,7 +473,7 @@ export default {
       }
 
       const iconPosition = dropNode.$el
-        .querySelector(".devops-tree-node__expand-icon")
+        .querySelector(".vue-tree-node__expand-icon")
         .getBoundingClientRect();
       const dropIndicator = this.$refs.dropIndicator;
       if (dropType === "before") {

@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^="devops-icon-"], [class*=" devops-icon-"] {
+[class^="vue-icon-"], [class*=" vue-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'tree-icons' !important;
   speak: none;
@@ -26,14 +26,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.devops-icon-caret-bottom:before {
+.vue-icon-caret-bottom:before {
   content: "\e790";
 }
 
-.devops-icon-caret-right:before {
+.vue-icon-caret-right:before {
   content: "\e791";
 }
 
-.devops-icon-loading {
+.vue-icon-loading {
   animation: rotating 2s linear infinite;
 }

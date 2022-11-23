@@ -831,17 +831,17 @@ $--scrollbar-hover-background-color: rgba($--color-text-secondary, .5) !default;
 /* Carousel
 --------------------------*/
 /// fontSize||Font|1
-$--carousdevops-arrow-font-size: 12px !default;
-$--carousdevops-arrow-size: 36px !default;
-$--carousdevops-arrow-background: rgba(31, 45, 61, 0.11) !default;
-$--carousdevops-arrow-hover-background: rgba(31, 45, 61, 0.23) !default;
+$--carousvue-arrow-font-size: 12px !default;
+$--carousvue-arrow-size: 36px !default;
+$--carousvue-arrow-background: rgba(31, 45, 61, 0.11) !default;
+$--carousvue-arrow-hover-background: rgba(31, 45, 61, 0.23) !default;
 /// width||Other|4
-$--carousdevops-indicator-width: 30px !default;
+$--carousvue-indicator-width: 30px !default;
 /// height||Other|4
-$--carousdevops-indicator-height: 2px !default;
-$--carousdevops-indicator-padding-horizontal: 4px !default;
-$--carousdevops-indicator-padding-vertical: 12px !default;
-$--carousdevops-indicator-out-color: $--border-color-hover !default;
+$--carousvue-indicator-height: 2px !default;
+$--carousvue-indicator-padding-horizontal: 4px !default;
+$--carousvue-indicator-padding-vertical: 12px !default;
+$--carousvue-indicator-out-color: $--border-color-hover !default;
 
 /* Collapse
 --------------------------*/
@@ -867,15 +867,15 @@ $--collapse-content-font-color: $--color-text-primary !default;
 $--transfer-border-color: $--border-color-lighter !default;
 $--transfer-border-radius: $--border-radius-base !default;
 /// height||Other|4
-$--transfer-pandevops-width: 200px !default;
+$--transfer-panvue-width: 200px !default;
 /// height||Other|4
-$--transfer-pandevops-header-height: 40px !default;
+$--transfer-panvue-header-height: 40px !default;
 /// color||Color|0
-$--transfer-pandevops-header-background-color: $--background-color-base !default;
+$--transfer-panvue-header-background-color: $--background-color-base !default;
 /// height||Other|4
-$--transfer-pandevops-footer-height: 40px !default;
+$--transfer-panvue-footer-height: 40px !default;
 /// height||Other|4
-$--transfer-pandevops-body-height: 246px !default;
+$--transfer-panvue-body-height: 246px !default;
 /// height||Other|4
 $--transfer-item-height: 30px !default;
 /// height||Other|4
@@ -941,7 +941,7 @@ $--calendar-cell-width: 85px !default;
 /* Form
 -------------------------- */
 /// fontSize||Font|1
-$--form-labdevops-font-size: $--font-size-base !default;
+$--form-labvue-font-size: $--font-size-base !default;
 
 /* Avatar
 --------------------------*/
@@ -974,7 +974,7 @@ $--empty-bottom-margin-top: 20px !default;
 $--descriptions-header-margin-bottom: 20px !default;
 $--descriptions-title-font-size: 16px !default;
 $--descriptions-table-border: 1px solid $--border-color-lighter !default;
-$--descriptions-item-bordered-labdevops-background: #fafafa !default;
+$--descriptions-item-bordered-labvue-background: #fafafa !default;
 
 /* Skeleton 
 --------------------------*/

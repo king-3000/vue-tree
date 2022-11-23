@@ -29,37 +29,37 @@
       cursor: not-allowed;
     }
 
-    & + .devops-checkbox.is-bordered {
+    & + .vue-checkbox.is-bordered {
       margin-left: 10px;
     }
 
-    &.devops-checkbox--medium {
+    &.vue-checkbox--medium {
       padding: $--checkbox-bordered-medium-padding;
       border-radius: $--button-medium-border-radius;
       height: $--checkbox-bordered-medium-height;
 
-      .devops-checkbox__label {
+      .vue-checkbox__label {
         line-height: 17px;
         font-size: $--button-medium-font-size;
       }
 
-      .devops-checkbox__inner {
+      .vue-checkbox__inner {
         height: $--checkbox-bordered-medium-input-height;
         width: $--checkbox-bordered-medium-input-width;
       }
     }
 
-    &.devops-checkbox--small {
+    &.vue-checkbox--small {
       padding: $--checkbox-bordered-small-padding;
       border-radius: $--button-small-border-radius;
       height: $--checkbox-bordered-small-height;
 
-      .devops-checkbox__label {
+      .vue-checkbox__label {
         line-height: 15px;
         font-size: $--button-small-font-size;
       }
 
-      .devops-checkbox__inner {
+      .vue-checkbox__inner {
         height: $--checkbox-bordered-small-input-height;
         width: $--checkbox-bordered-small-input-width;
 
@@ -70,17 +70,17 @@
       }
     }
 
-    &.devops-checkbox--mini {
+    &.vue-checkbox--mini {
       padding: $--checkbox-bordered-mini-padding;
       border-radius: $--button-mini-border-radius;
       height: $--checkbox-bordered-mini-height;
 
-      .devops-checkbox__label {
+      .vue-checkbox__label {
         line-height: 12px;
         font-size: $--button-mini-font-size;
       }
 
-      .devops-checkbox__inner {
+      .vue-checkbox__inner {
         height: $--checkbox-bordered-mini-input-height;
         width: $--checkbox-bordered-mini-input-width;
         &::after {
@@ -101,7 +101,7 @@
     vertical-align: middle;
 
     @include when(disabled) {
-      .devops-checkbox__inner {
+      .vue-checkbox__inner {
         background-color: $--checkbox-disabled-input-fill;
         border-color: $--checkbox-disabled-border-color;
         cursor: not-allowed;
@@ -111,13 +111,13 @@
           border-color: $--checkbox-disabled-icon-color;
         }
 
-        & + .devops-checkbox__label {
+        & + .vue-checkbox__label {
           cursor: not-allowed;
         }
       }
 
       &.is-checked {
-        .devops-checkbox__inner {
+        .vue-checkbox__inner {
           background-color: $--checkbox-disabled-checked-input-fill;
           border-color: $--checkbox-disabled-checked-input-border-color;
 
@@ -128,7 +128,7 @@
       }
 
       &.is-indeterminate {
-        .devops-checkbox__inner {
+        .vue-checkbox__inner {
           background-color: $--checkbox-disabled-checked-input-fill;
           border-color: $--checkbox-disabled-checked-input-border-color;
 
@@ -139,14 +139,14 @@
         }
       }
 
-      & + span.devops-checkbox__label {
+      & + span.vue-checkbox__label {
         color: $--disabled-color-base;
         cursor: not-allowed;
       }
     }
 
     @include when(checked) {
-      .devops-checkbox__inner {
+      .vue-checkbox__inner {
         background-color: $--checkbox-checked-background-color;
         border-color: $--checkbox-checked-input-border-color;
 
@@ -155,17 +155,17 @@
         }
       }
 
-      & + .devops-checkbox__label {
+      & + .vue-checkbox__label {
         color: $--checkbox-checked-font-color;
       }
     }
     @include when(focus) { /*focus时 视觉上区分*/
-      .devops-checkbox__inner {
+      .vue-checkbox__inner {
         border-color: $--checkbox-input-border-color-hover;
       }
     }
     @include when(indeterminate) {
-      .devops-checkbox__inner {
+      .vue-checkbox__inner {
         background-color: $--checkbox-checked-background-color;
         border-color: $--checkbox-checked-input-border-color;
 
@@ -273,7 +273,7 @@
       color: $--color-primary;
     }
 
-    & [class*="devops-icon-"] {
+    & [class*="vue-icon-"] {
       line-height: 0.9;
 
       & + span {
@@ -291,19 +291,19 @@
   }
 
   &.is-checked {
-    & .devops-checkbox-button__inner {
+    & .vue-checkbox-button__inner {
       color: $--checkbox-button-checked-font-color;
       background-color: $--checkbox-button-checked-background-color;
       border-color: $--checkbox-button-checked-border-color;
       box-shadow: -1px 0 0 0 $--color-primary-light-4;
     }
-    &:first-child .devops-checkbox-button__inner {
+    &:first-child .vue-checkbox-button__inner {
       border-left-color: $--checkbox-button-checked-border-color;
     }
   }
 
   &.is-disabled {
-    & .devops-checkbox-button__inner {
+    & .vue-checkbox-button__inner {
       color: $--button-disabled-font-color;
       cursor: not-allowed;
       background-image: none;
@@ -311,13 +311,13 @@
       border-color: $--button-disabled-border-color;
       box-shadow: none;
     }
-    &:first-child .devops-checkbox-button__inner {
+    &:first-child .vue-checkbox-button__inner {
       border-left-color: $--button-disabled-border-color;
     }
   }
 
   &:first-child {
-    .devops-checkbox-button__inner {
+    .vue-checkbox-button__inner {
       border-left: $--border-base;
       border-radius: $--border-radius-base 0 0 $--border-radius-base;
       box-shadow: none !important;
@@ -325,28 +325,28 @@
   }
 
   &.is-focus {
-    & .devops-checkbox-button__inner {
+    & .vue-checkbox-button__inner {
       border-color: $--checkbox-button-checked-border-color;
     }
   }
 
   &:last-child {
-    .devops-checkbox-button__inner {
+    .vue-checkbox-button__inner {
       border-radius: 0 $--border-radius-base $--border-radius-base 0;
     }
   }
   @include m(medium) {
-    .devops-checkbox-button__inner {
+    .vue-checkbox-button__inner {
       @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, 0);
     }
   }
   @include m(small) {
-    .devops-checkbox-button__inner {
+    .vue-checkbox-button__inner {
       @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, 0);
     }
   }
   @include m(mini) {
-    .devops-checkbox-button__inner {
+    .vue-checkbox-button__inner {
       @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, 0);
     }
   }

@@ -42,7 +42,7 @@
 </script>
 
 <template>
-  <div class="devops-checkbox-group" role="group" aria-label="checkbox-group">
+  <div class="vue-checkbox-group" role="group" aria-label="checkbox-group">
     <slot></slot>
   </div>
 </template>

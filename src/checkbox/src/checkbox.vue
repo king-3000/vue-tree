@@ -1,15 +1,15 @@
 <template>
   <label
-    class="devops-checkbox"
+    class="vue-checkbox"
     :class="[
-      border && checkboxSize ? 'devops-checkbox--' + checkboxSize : '',
+      border && checkboxSize ? 'vue-checkbox--' + checkboxSize : '',
       { 'is-disabled': isDisabled },
       { 'is-bordered': border },
       { 'is-checked': isChecked }
     ]"
     :id="id"
   >
-    <span class="devops-checkbox__input"
+    <span class="vue-checkbox__input"
       :class="{
         'is-disabled': isDisabled,
         'is-checked': isChecked,
@@ -20,10 +20,10 @@
       :role="indeterminate ? 'checkbox' : false"
       :aria-checked="indeterminate ? 'mixed' : false"
     >
-      <span class="devops-checkbox__inner"></span>
+      <span class="vue-checkbox__inner"></span>
       <input
         v-if="trueLabel || falseLabel"
-        class="devops-checkbox__original"
+        class="vue-checkbox__original"
         type="checkbox"
         :aria-hidden="indeterminate ? 'true' : 'false'"
         :name="name"
@@ -36,7 +36,7 @@
         @blur="focus = false">
       <input
         v-else
-        class="devops-checkbox__original"
+        class="vue-checkbox__original"
         type="checkbox"
         :aria-hidden="indeterminate ? 'true' : 'false'"
         :disabled="isDisabled"
@@ -47,7 +47,7 @@
         @focus="focus = true"
         @blur="focus = false">
     </span>
-    <span class="devops-checkbox__label" v-if="$slots.default || label">
+    <span class="vue-checkbox__label" v-if="$slots.default || label">
       <slot></slot>
       <template v-if="!$slots.default">{{label}}</template>
     </span>
