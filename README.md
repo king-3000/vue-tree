@@ -2,19 +2,12 @@
 
 用清晰的层级结构展示信息，可展开或折叠。
 
-### 快速开始
+### 安装依赖
 
 ```
-// 安装依赖
-npm install
+npm install @devops/vue-tree
 // or 
-yarn install
-
-// 启动调试
-yarn dev
-
-// 发布打包
-yarn build
+yarn install @devops/vue-tree
 ```
 
 > ps: example 目录为实例目录
@@ -28,7 +21,11 @@ yarn build
 <vue-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></vue-tree>
 
 <script>
+  import VueTree from "@devops/vue-tree"
+  import "@devops/vue-tree/dist/vue-tree.css"
+
   export default {
+    components: { VueTree },
     data() {
       return {
         data: [{

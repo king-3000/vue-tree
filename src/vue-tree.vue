@@ -560,6 +560,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '@/assets/scss/style.scss';
+<style lang="scss" rel="stylesheet/scss">
+@font-face {
+  font-family: 'tree-icons';
+  src: url('fonts/tree-icons.woff') format('woff'), url('fonts/tree-icons.ttf') format('truetype');
+  font-weight: normal;
+  font-display: 'auto';
+  font-style: normal;
+}
+@import './scss/style.scss';
 </style>

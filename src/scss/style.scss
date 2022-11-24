@@ -2,7 +2,44 @@
 @import "common/var";
 @import "common/transition";
 @import "checkbox";
-@import "icon";
+
+[class^="vue-icon-"], [class*=" vue-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tree-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.vue-icon-caret-bottom:before {
+  content: "\e790";
+}
+
+.vue-icon-caret-right:before {
+  content: "\e791";
+}
+
+.vue-icon-loading {
+  animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
 
 @include b(tree) {
   position: relative;
